@@ -10,21 +10,9 @@ import javax.persistence.MappedSuperclass;
  * created on 2/25/2020
  */
 @MappedSuperclass
-public abstract class Order {
-
-    private Long id;
+public abstract class Order extends BaseEntity {
 
     private Long quantity;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getQuantity() {
         return this.quantity;
