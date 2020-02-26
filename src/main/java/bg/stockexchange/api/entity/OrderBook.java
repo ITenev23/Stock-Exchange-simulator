@@ -1,98 +1,70 @@
 package bg.stockexchange.api.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.Date;
+import java.util.List;
 
 /**
  * @author ITenev
  * created on 2/25/2020
- *
+ * <p>
  * A buy order is called a bid
  * A sell order is called a ask
- *
  */
 @Entity
 @Table(name = "order_book")
-public class OrderBook extends BaseEntity{
+public class OrderBook extends BaseEntity {
 
-    private Date bidTime;
+    private Long totalInstruments;
 
-    private Long bidId;
+    private Long totalBuyOrders;
 
-    private Long bidQuantity;
+    private Long totalSellOrders;
 
-    private Long bidPrice;
+    private Long totalTrades;
 
-    private Long askPrice;
+    private List<Instrument> instruments;
 
-    private Long askQuantity;
-
-    private Long askId;
-
-    private Date askTime;
-
-    public Date getBidTime() {
-        return this.bidTime;
+    public Long getTotalInstruments() {
+        return this.totalInstruments;
     }
 
-    public void setBidTime(Date bidTime) {
-        this.bidTime = bidTime;
+    public void setTotalInstruments(Long totalInstruments) {
+        this.totalInstruments = totalInstruments;
     }
 
-    public Long getBidId() {
-        return this.bidId;
+    public Long getTotalBuyOrders() {
+        return this.totalBuyOrders;
     }
 
-    public void setBidId(Long bidId) {
-        this.bidId = bidId;
+    public void setTotalBuyOrders(Long totalBuyOrders) {
+        this.totalBuyOrders = totalBuyOrders;
     }
 
-    public Long getBidQuantity() {
-        return this.bidQuantity;
+    public Long getTotalSellOrders() {
+        return this.totalSellOrders;
     }
 
-    public void setBidQuantity(Long bidQuantity) {
-        this.bidQuantity = bidQuantity;
+    public void setTotalSellOrders(Long totalSellOrders) {
+        this.totalSellOrders = totalSellOrders;
     }
 
-    public Long getBidPrice() {
-        return this.bidPrice;
+    public Long getTotalTrades() {
+        return this.totalTrades;
     }
 
-    public void setBidPrice(Long bidPrice) {
-        this.bidPrice = bidPrice;
+    public void setTotalTrades(Long totalTrades) {
+        this.totalTrades = totalTrades;
     }
 
-    public Long getAskPrice() {
-        return this.askPrice;
+    @OneToMany
+    public List<Instrument> getInstruments() {
+        return this.instruments;
     }
 
-    public void setAskPrice(Long askPrice) {
-        this.askPrice = askPrice;
+    public void setInstruments(List<Instrument> instruments) {
+        this.instruments = instruments;
     }
 
-    public Long getAskQuantity() {
-        return this.askQuantity;
-    }
-
-    public void setAskQuantity(Long askQuantity) {
-        this.askQuantity = askQuantity;
-    }
-
-    public Long getAskId() {
-        return this.askId;
-    }
-
-    public void setAskId(Long askId) {
-        this.askId = askId;
-    }
-
-    public Date getAskTime() {
-        return this.askTime;
-    }
-
-    public void setAskTime(Date askTime) {
-        this.askTime = askTime;
-    }
 }

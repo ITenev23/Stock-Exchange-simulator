@@ -5,10 +5,10 @@ import javax.persistence.Table;
 
 /**
  * @author ITenev
- * created on 2/25/2020
+ * created on 2/26/2020
  */
 @Entity
-@Table(name = "order_types")
-public class OrderType extends CommonProps {
+@Table(name = "order_statuses")
+public class OrderStatus extends CommonProps {
 
 }
